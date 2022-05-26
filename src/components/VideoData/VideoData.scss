@@ -1,0 +1,24 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.video {
+  padding: 0 16px;
+}
+.video-info {
+  &__title {
+    @include page-header-mobile-font;
+    border-bottom: 1px solid $secondary-inactive;
+    padding-bottom: 1rem;
+    margin-bottom: 0;
+  }
+
+  &__subtitle {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $secondary-inactive;
+  }
+
+  &__description {
+    @include body-copy-mobile-font;
+  }
+}
