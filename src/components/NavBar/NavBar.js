@@ -1,6 +1,8 @@
 import "./NavBar.scss";
+import icon from "../../assets/images/Mohan-muruge.jpg";
+import logo from "../../assets/logo/BrainFlix-logo.svg";
 
-function NavBar(props) {
+function NavBar() {
   return (
     <header className="header">
       <nav className="nav">
@@ -8,7 +10,7 @@ function NavBar(props) {
           <a href="/">
             <img
               className="nav-left__logo"
-              src={props.logo}
+              src={logo}
               alt="Brainflix logo"
             ></img>
           </a>
@@ -19,11 +21,7 @@ function NavBar(props) {
             type="text"
             placeholder="Search"
           ></input>
-          <img
-            className="nav-right__icon"
-            src={props.icon}
-            alt="user icon"
-          ></img>
+          <img className="nav-right__icon" src={icon} alt="user icon"></img>
           <button className="nav-right__upload-btn">Upload</button>
         </div>
       </nav>
