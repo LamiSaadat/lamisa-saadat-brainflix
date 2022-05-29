@@ -2,8 +2,9 @@ import "./App.scss";
 import NavBar from "./components/NavBar";
 import VideoDisplay from "./components/VideoDisplay";
 import VideoData from "./components/VideoData";
-import VideoQueue from "./components/VideoQueue";
+import VideoForm from "./components/VideoForm/VideoForm";
 import Comments from "./components/Comments";
+import VideoQueue from "./components/VideoQueue";
 import videos from "./data/videos.json";
 import videoDetails from "./data/video-details.json";
 
@@ -34,6 +35,8 @@ class App extends Component {
         <VideoDisplay selectedVideo={this.state.selectedVideo} />
         {/* VIDEO DATA COMPONENT */}
         <VideoData selectedVideo={this.state.selectedVideo} />
+        {/* VIDEO FORM COMPONENT */}
+        <VideoForm selectedVideo={this.state.selectedVideo} />
         {/* VIDEO COMMENTS COMPONENT */}
         <Comments selectedVideo={this.state.selectedVideo} />
         {/* VIDEO QUEUE COMPONENT */}

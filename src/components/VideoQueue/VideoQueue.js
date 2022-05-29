@@ -13,9 +13,15 @@ const VideoQueue = ({ videos, handleVideoSelection }) => {
             }}
             key={video.id}
           >
-            <img className="video-card__image" src={video.image} alt="" />
-            <p className="video-card__title">{video.title}</p>
-            <p className="video-card__channel">{video.channel}</p>
+            <img
+              className="video-card__image"
+              src={video.image}
+              alt={`Video called ${video.title} by ${video.channel} `}
+            />
+            <div className="video-card__info">
+              <p className="video-card__title">{video.title}</p>
+              <p className="video-card__channel">{video.channel}</p>
+            </div>
           </div>
         );
       })}
