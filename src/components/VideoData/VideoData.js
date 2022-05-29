@@ -10,7 +10,7 @@ function VideoData({ selectedVideo }) {
       <div className="video-info">
         <h1 className="video-info__title">{selectedVideo.title}</h1>
         <div className="video-info__subtitle">
-          <div className="video-info__sibtitle-left">
+          <div className="video-info__subtitle-left">
             <p className="video-info__channel">{`By ${selectedVideo.channel}`}</p>
             <p className="video-info__date">
               {convertTimeToDate(new Date(selectedVideo.timestamp))}

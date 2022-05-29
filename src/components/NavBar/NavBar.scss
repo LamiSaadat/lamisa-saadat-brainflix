@@ -3,6 +3,11 @@
 
 header {
   padding-bottom: 16px;
+  max-width: $max-content-width;
+
+  @include tablet {
+    padding: 0.3rem 1.5rem 0 1.5rem;
+  }
 }
 
 .nav {
@@ -31,6 +36,11 @@ header {
   flex-direction: row;
   flex-wrap: wrap;
 
+  @include tablet {
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+
   &__search-input {
     border: 1px solid $secondary-inactive;
     border-radius: 4px;
@@ -40,6 +50,14 @@ header {
     background-image: url("../../assets/icons/search.svg");
     background-repeat: no-repeat;
     background-position: 2%;
+
+    @include tablet {
+      width: 240px;
+      order: 1;
+      margin-bottom: 0;
+      margin-right: 2rem;
+      height: 2.3rem;
+    }
   }
   ::placeholder {
     padding-left: 1.5rem;
@@ -51,6 +69,10 @@ header {
     height: 2rem;
     width: 2rem;
     margin-left: 1.5rem;
+
+    @include tablet {
+      order: 3;
+    }
   }
 
   &__upload-btn {
@@ -73,8 +95,9 @@ header {
       background-color: $secondary-cta;
     }
 
-    @mixin tablet {
+    @include tablet {
       max-width: 150px;
+      order: 2;
     }
   }
 }

@@ -3,11 +3,23 @@
 
 .video-info {
   padding: 0 1rem;
+
+  @include tablet {
+    padding: 0 2.5rem;
+    margin-bottom: 2rem;
+  }
+
   &__title {
     @include page-header-mobile-font;
     border-bottom: 1px solid $secondary-inactive;
     margin-bottom: 0;
     padding-bottom: 1rem;
+
+    @include tablet {
+      @include page-header-desktop-font;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
   }
 
   &__subtitle {
@@ -15,14 +27,39 @@
     justify-content: space-between;
     border-bottom: 1px solid $secondary-inactive;
     font-size: 0.8rem;
+
+    @include tablet {
+      @include body-copy-desktop-font;
+    }
   }
 
-  &__subtitile-right {
+  &__subtitle-left {
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  &__subtitle-right {
     padding-right: 2rem;
+
+    @include tablet {
+      display: flex;
+      padding-right: 0;
+    }
   }
 
   &__channel {
     font-weight: 700;
+
+    @include tablet {
+      padding-right: 1rem;
+    }
+  }
+
+  &__views {
+    @include tablet {
+      padding-right: 1rem;
+    }
   }
 
   &__date,
@@ -33,5 +70,9 @@
 
   &__description {
     @include body-copy-mobile-font;
+
+    @include tablet {
+      @include body-copy-desktop-font;
+    }
   }
 }

@@ -4,6 +4,10 @@
 .comment-counter {
   padding: 0 1rem;
   @include subheader-mobile-font;
+
+  @include tablet {
+    padding: 0 2.5rem;
+  }
 }
 
 .form-container {
@@ -12,11 +16,21 @@
   justify-content: space-between;
   padding-bottom: 1rem;
 
+  @include tablet {
+    padding: 0 2.5rem;
+    margin: 1rem 0;
+  }
+
   &__image {
     border-radius: 50%;
     height: 2rem;
     width: 2rem;
     margin-top: 1rem;
+
+    @include tablet {
+      height: 40px;
+      width: 40px;
+    }
   }
 }
 
@@ -24,6 +38,12 @@
   display: flex;
   flex-direction: column;
   width: 83%;
+
+  @include tablet {
+    flex-direction: row;
+    width: 90%;
+    align-items: center;
+  }
 
   &__label {
     @include labels-buttons-mobile-font;
@@ -43,6 +63,11 @@
     @include body-copy-mobile-font;
     font-family: "AvenirNext LT Pro", sans-serif;
     margin-bottom: 1rem;
+
+    @include tablet {
+      height: 2rem;
+      width: 27rem;
+    }
   }
 
   // ::placeholder {
@@ -65,12 +90,19 @@
     text-transform: uppercase;
     background-image: url("../../assets/icons/add_comment.svg");
     background-repeat: no-repeat;
-    background-position: 2%;
+    background-position: 6%;
+    background-size: 1rem;
     cursor: pointer;
     font-family: "AvenirNext LT Pro", sans-serif;
 
     &:hover {
       background-color: $secondary-cta;
+    }
+
+    @include tablet {
+      max-width: 150px;
+      height: 2rem;
+      font-size: 0.7rem;
     }
   }
 }

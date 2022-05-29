@@ -1,8 +1,21 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
 .video-display {
   width: 100%;
+  @include tablet {
+    width: 100%;
+    text-align: center;
+    background-color: $primary-text;
+    margin-bottom: 1rem;
+  }
 
   &__video {
     width: 100%;
     height: 50%;
+    @include tablet {
+      width: 90%;
+      height: 50%;
+    }
   }
 }

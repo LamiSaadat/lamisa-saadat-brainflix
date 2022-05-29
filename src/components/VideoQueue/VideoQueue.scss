@@ -4,6 +4,10 @@
 .video-queue {
   padding: 0 1rem;
 
+  @include tablet {
+    padding: 0 2.5rem;
+  }
+
   &__title {
     @include labels-buttons-mobile-font;
     font-size: 0.8rem;
@@ -20,6 +24,10 @@
   justify-content: space-between;
   margin-bottom: 1rem;
 
+  @include tablet {
+    justify-content: start;
+  }
+
   &__image {
     height: 4rem;
     width: 6rem;
@@ -32,6 +40,10 @@
     @include body-copy-mobile-font;
     height: 4rem;
     width: 10rem;
+
+    @include tablet {
+      padding-left: 1rem;
+    }
   }
 
   &__title {
