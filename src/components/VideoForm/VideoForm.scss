@@ -1,9 +1,15 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
+.form-wrapper {
+  @include desktop {
+    border-right: 1px solid $secondary-inactive;
+  }
+}
 .comment-counter {
   padding: 0 1rem;
   @include subheader-mobile-font;
+  margin: 0;
 
   @include tablet {
     padding: 0 2.5rem;
@@ -17,8 +23,9 @@
   padding-bottom: 1rem;
 
   @include tablet {
-    padding: 0 2.5rem;
-    margin: 1rem 0;
+    padding: 1 2.5rem;
+    width: 90%;
+    margin: 0 auto;
   }
 
   &__image {
@@ -41,8 +48,13 @@
 
   @include tablet {
     flex-direction: row;
-    width: 90%;
+    width: 100%;
     align-items: center;
+    justify-content: space-evenly;
+  }
+
+  @include desktop {
+    justify-content: space-between;
   }
 
   &__label {
@@ -50,6 +62,16 @@
     font-weight: 600;
     text-transform: uppercase;
     color: #afafaf;
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      padding-left: 1rem;
+    }
+
+    @include desktop {
+      padding-left: 1rem;
+    }
   }
 
   &__input {
@@ -59,7 +81,7 @@
     background-color: $secondary-background;
     border: 0.0625rem solid $secondary-text;
     border-radius: 0.25rem;
-    margin-bottom: 0.25rem;
+    // margin-bottom: 0.25rem;
     @include body-copy-mobile-font;
     font-family: "AvenirNext LT Pro", sans-serif;
     margin-bottom: 1rem;
@@ -103,6 +125,7 @@
       max-width: 150px;
       height: 2rem;
       font-size: 0.7rem;
+      margin-left: 1.2rem;
     }
   }
 }

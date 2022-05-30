@@ -6,7 +6,12 @@
 
   @include tablet {
     padding: 0 2.5rem;
-    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  @include desktop {
+    border-right: 1px solid $secondary-inactive;
+    padding-right: 0;
   }
 
   &__title {
@@ -44,7 +49,6 @@
 
     @include tablet {
       display: flex;
-      padding-right: 0;
     }
   }
 

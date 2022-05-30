@@ -33,17 +33,23 @@ class App extends Component {
         <NavBar />
         {/* VIDEO DISPLAY COMPONENT */}
         <VideoDisplay selectedVideo={this.state.selectedVideo} />
-        {/* VIDEO DATA COMPONENT */}
-        <VideoData selectedVideo={this.state.selectedVideo} />
-        {/* VIDEO FORM COMPONENT */}
-        <VideoForm selectedVideo={this.state.selectedVideo} />
-        {/* VIDEO COMMENTS COMPONENT */}
-        <Comments selectedVideo={this.state.selectedVideo} />
-        {/* VIDEO QUEUE COMPONENT */}
-        <VideoQueue
-          videos={nonSelectedVideo}
-          handleVideoSelection={this.handleVideoSelection}
-        />
+        <div className="bottom-wrapper">
+          <div className="video-content-wrapper">
+            {/* VIDEO DATA COMPONENT */}
+            <VideoData selectedVideo={this.state.selectedVideo} />
+            {/* VIDEO FORM COMPONENT */}
+            <VideoForm selectedVideo={this.state.selectedVideo} />
+            {/* VIDEO COMMENTS COMPONENT */}
+            <Comments selectedVideo={this.state.selectedVideo} />
+            {/* VIDEO QUEUE COMPONENT */}
+          </div>
+          <div className="video-queue-wrapper">
+            <VideoQueue
+              videos={nonSelectedVideo}
+              handleVideoSelection={this.handleVideoSelection}
+            />
+          </div>
+        </div>
       </>
     );
   }

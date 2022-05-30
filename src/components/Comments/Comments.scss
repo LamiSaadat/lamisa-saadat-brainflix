@@ -3,6 +3,11 @@
 
 .comments {
   padding: 0 1rem;
+
+  @include desktop {
+    border-right: 1px solid $secondary-inactive;
+    padding-right: 0;
+  }
 }
 
 .comment-card {
@@ -21,6 +26,11 @@
     margin: 0 auto;
     margin: 0px 1.5rem;
     padding: 0.5rem 0;
+  }
+
+  @include desktop {
+    padding-right: 0;
+    margin-right: 0;
   }
 
   &__image {
