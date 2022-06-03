@@ -4,8 +4,6 @@ import VideoData from "../../components/VideoData";
 // import VideoForm from "../../components/VideoForm/VideoForm";
 import Comments from "../../components/Comments";
 import VideoQueue from "../../components/VideoQueue";
-// import videos from "../../data/videos.json";
-// import videoDetails from "../../data/video-details.json";
 import React from "react";
 import axios from "axios";
 
@@ -17,11 +15,11 @@ class Home extends React.Component {
   state = {
     videos: null,
     activeVideo: null,
-    // comments: [],
   };
 
   componentDidMount() {
-    axios.get(`${BASE_URL}/videos${apiKeyString}`).then((response) => {
+    const videoListEndpoint = `${BASE_URL}/videos${apiKeyString}`;
+    axios.get(videoListEndpoint).then((response) => {
       this.setState({
         videos: response.data,
       });
@@ -31,31 +29,28 @@ class Home extends React.Component {
     });
   }
 
-  //match the video id
-  // handleVideoSelection = (videoId) => {
-  //   const newSelectedVideo = videoDetails.find((video) => videoId === video.id);
-
-  //   this.setState({
-  //     selectedVideo: newSelectedVideo,
-  //   });
-  // };
-
   fetchActiveVideo = (videoId) => {
-    return axios
-      .get(`${BASE_URL}/videos/${videoId}${apiKeyString}`)
-      .then((response) => {
-        console.log(response);
-        this.setState({
-          activeVideo: response.data,
-          // comments: response.data.comments,
-        });
+    const videoDetailsEndpoint = `${BASE_URL}/videos/${videoId}${apiKeyString}`;
+    axios.get(videoDetailsEndpoint).then((response) => {
+      this.setState({
+        activeVideo: response.data,
       });
+    });
   };
 
+  componentDidUpdate(prevProps) {
+    const videoId = this.props.match.params.id;
+    const prevVideoId = prevProps.match.params.id;
+
+    if (videoId && videoId !== prevVideoId) {
+      this.fetchActiveVideo(videoId);
+    }
+    if (!videoId && prevVideoId) {
+      this.fetchActiveVideo(this.state.videos[0].id);
+    }
+  }
+
   render() {
-    // const nonSelectedVideo = videos.filter((video) => {
-    //   return video.id !== this.state.selectedVideo.id;
-    // });
     const { videos, activeVideo } = this.state;
 
     if (videos === null || activeVideo === null) {
