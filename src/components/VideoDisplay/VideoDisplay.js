@@ -1,14 +1,10 @@
 import "./VideoDisplay.scss";
 
-function VideoDisplay({ selectedVideo }) {
+function VideoDisplay({ image }) {
   return (
     <section className="video-display-wrapper">
       <div className="video-display">
-        <video
-          controls
-          poster={selectedVideo.image}
-          className="video-display__video"
-        >
+        <video controls poster={image} className="video-display__video">
           <source src="/" type="video/mp4"></source>
         </video>
       </div>

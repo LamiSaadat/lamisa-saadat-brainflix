@@ -1,56 +1,21 @@
 import "./App.scss";
 import NavBar from "./components/NavBar";
-import VideoDisplay from "./components/VideoDisplay";
-import VideoData from "./components/VideoData";
-import VideoForm from "./components/VideoForm/VideoForm";
-import Comments from "./components/Comments";
-import VideoQueue from "./components/VideoQueue";
-import videos from "./data/videos.json";
-import videoDetails from "./data/video-details.json";
-
+import Home from "./pages/Home";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import React, { Component } from "react";
+import Upload from "./pages/Upload";
 
 class App extends Component {
-  state = {
-    selectedVideo: videoDetails[0],
-  };
-
-  handleVideoSelection = (videoId) => {
-    const newSelectedVideo = videoDetails.find((video) => videoId === video.id);
-
-    this.setState({
-      selectedVideo: newSelectedVideo,
-    });
-  };
-
   render() {
-    const nonSelectedVideo = videos.filter((video) => {
-      return video.id !== this.state.selectedVideo.id;
-    });
     return (
-      <>
-        {/* NAV BAR COMPONENT */}
+      <Router>
         <NavBar />
-        {/* VIDEO DISPLAY COMPONENT */}
-        <VideoDisplay selectedVideo={this.state.selectedVideo} />
-        <div className="bottom-wrapper">
-          <div className="video-content-wrapper">
-            {/* VIDEO DATA COMPONENT */}
-            <VideoData selectedVideo={this.state.selectedVideo} />
-            {/* VIDEO FORM COMPONENT */}
-            <VideoForm selectedVideo={this.state.selectedVideo} />
-            {/* VIDEO COMMENTS COMPONENT */}
-            <Comments selectedVideo={this.state.selectedVideo} />
-            {/* VIDEO QUEUE COMPONENT */}
-          </div>
-          <div className="video-queue-wrapper">
-            <VideoQueue
-              videos={nonSelectedVideo}
-              handleVideoSelection={this.handleVideoSelection}
-            />
-          </div>
-        </div>
-      </>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/upload" component={Upload} />
+          <Route path="/video/:id" component={Home} />
+        </Switch>
+      </Router>
     );
   }
 }

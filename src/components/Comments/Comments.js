@@ -1,14 +1,15 @@
 import { convertTimeToDate } from "../../utils/utils";
 import "./Comments.scss";
 
-function Comments({ selectedVideo }) {
-  let comments = selectedVideo.comments;
+function Comments({ comments }) {
+  // let comments = selectedVideo.comments;
   console.log(comments);
+
   return (
     <section className="comments">
-      {comments.map((comment, index) => {
+      {comments.map((comment) => {
         return (
-          <div className="comment-card" key={index}>
+          <div className="comment-card" key={comment.id}>
             <img className="comment-card__image" alt="" />
             <div className="comment-card__output">
               <div className="comment-card__info">
