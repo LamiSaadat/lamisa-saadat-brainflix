@@ -2,9 +2,6 @@ import { convertTimeToDate } from "../../utils/utils";
 import "./Comments.scss";
 
 function Comments({ comments }) {
-  // let comments = selectedVideo.comments;
-  console.log(comments);
-
   return (
     <section className="comments">
       {comments.map((comment) => {

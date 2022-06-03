@@ -9,7 +9,7 @@ function NavBar() {
       <nav className="nav">
         <div className="nav-left">
           {/* changed a tags to Link tags */}
-          <Link to="/">
+          <Link to="/" className="link">
             <img
               className="nav-left__logo"
               src={logo}
@@ -24,8 +24,8 @@ function NavBar() {
             placeholder="Search"
           ></input>
           <img className="nav-right__icon" src={icon} alt="user icon"></img>
-          <Link to="/upload">
-            <button className="nav-right__upload-btn">Upload</button>
+          <Link to="/upload" className="nav-right__upload-btn link">
+            Upload
           </Link>
         </div>
       </nav>

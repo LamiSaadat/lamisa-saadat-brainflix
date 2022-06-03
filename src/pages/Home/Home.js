@@ -1,7 +1,7 @@
 import "./Home.scss";
 import VideoDisplay from "../../components/VideoDisplay";
 import VideoData from "../../components/VideoData";
-// import VideoForm from "../../components/VideoForm/VideoForm";
+import VideoForm from "../../components/VideoForm/VideoForm";
 import Comments from "../../components/Comments";
 import VideoQueue from "../../components/VideoQueue";
 import React from "react";
@@ -59,6 +59,10 @@ class Home extends React.Component {
 
     const { image, comments } = activeVideo;
 
+    const filteredVideos = this.state.videos.filter((videos) => {
+      return videos.id !== this.state.activeVideo.id;
+    });
+
     return (
       <>
         {/*VIDEO DISPLAY COMPONENT*/}
@@ -68,16 +72,16 @@ class Home extends React.Component {
             {/* VIDEO DATA COMPONENT */}
             <VideoData activeVideo={activeVideo} />
             {/* VIDEO FORM COMPONENT */}
-            {/* <VideoForm
+            <VideoForm
             // selectedVideo={this.state.selectedVideo}
-            /> */}
+            />
             {/* VIDEO COMMENTS COMPONENT */}
             <Comments comments={comments} />
             {/* VIDEO QUEUE COMPONENT */}
           </div>
           <div className="video-queue-wrapper">
             <VideoQueue
-              videos={videos}
+              videos={filteredVideos}
               // videos={nonSelectedVideo}
               // handleVideoSelection={this.handleVideoSelection}
             />
