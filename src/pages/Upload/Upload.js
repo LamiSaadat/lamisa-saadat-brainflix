@@ -10,24 +10,34 @@ function Upload(props) {
   }
 
   return (
-    <section className="upload">
-      <h1>Upload Video</h1>
-      <figure className="upload__thumbnail">
-        <figcaption>Video Thumbnail</figcaption>
-        <img src={thumbnail}></img>
-      </figure>
-      <form className="upload__form" onSubmit={formSubmit}>
-        <label>
-          Title Your Video
-          <input></input>
-        </label>
-        <label>
-          Add a video description
-          <textarea></textarea>
-        </label>
-        <Link className="link">Cancel</Link>
-        <button type="submit">Publish</button>
-      </form>
+    <section className="upload-container">
+      <div className="upload">
+        <h1 className="upload__title">Upload Video</h1>
+        <div className="upload__content">
+          <figure className="upload__thumbnail">
+            <figcaption className="upload__thumbnail-caption label">
+              Video Thumbnail
+            </figcaption>
+            <img src={thumbnail} className="upload__thumbnail-image"></img>
+          </figure>
+          <form className="form" onSubmit={formSubmit}>
+            <label className="label form__title">
+              Title Your Video
+              <input className="form__title-input input"></input>
+            </label>
+            <label className="form__description label">
+              Add a video description
+              <textarea className="form__description-input input"></textarea>
+            </label>
+            <div className="form__button-container">
+              <Link className="link form__cancel-btn">Cancel</Link>
+              <button type="submit" className="form__publish-btn">
+                Publish
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </section>
   );
 }
