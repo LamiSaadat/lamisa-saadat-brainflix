@@ -80,11 +80,7 @@ class Home extends React.Component {
             {/* VIDEO QUEUE COMPONENT */}
           </div>
           <div className="video-queue-wrapper">
-            <VideoQueue
-              videos={filteredVideos}
-              // videos={nonSelectedVideo}
-              // handleVideoSelection={this.handleVideoSelection}
-            />
+            <VideoQueue videos={filteredVideos} />
           </div>
         </div>
       </>
