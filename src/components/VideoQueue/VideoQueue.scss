@@ -24,6 +24,8 @@
   display: flex;
   justify-content: start;
   margin-bottom: 1rem;
+  text-decoration: none;
+  color: $primary-text;
 
   &__image {
     height: 4rem;
@@ -32,8 +34,6 @@
   }
 
   &__info {
-    // display: flex;
-    // flex-direction: column;
     @include body-copy-mobile-font;
     height: 4rem;
     width: 10rem;

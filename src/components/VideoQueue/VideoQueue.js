@@ -11,11 +11,7 @@ const VideoQueue = ({
 
       {videos.map((video) => {
         return (
-          <Link
-            to={`/video/${video.id}`}
-            className="video-card link"
-            key={video.id}
-          >
+          <Link to={`/video/${video.id}`} className="video-card" key={video.id}>
             <img
               className="video-card__image"
               src={video.image}
