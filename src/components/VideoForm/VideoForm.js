@@ -10,11 +10,11 @@ function VideoForm() {
         <form className="form">
           <label className="form__label">
             Join the conversation
-            <input
+            <textarea
               type="text"
               placeholder="Add a new comment"
               className="form__input"
-            ></input>
+            ></textarea>
           </label>
           <button className="form__button">Comment</button>
         </form>
