@@ -91,6 +91,9 @@ header {
     background-position: 2%;
     cursor: pointer;
     font-family: "AvenirNext LT Pro", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
       background-color: $secondary-cta;
@@ -101,4 +104,9 @@ header {
       order: 2;
     }
   }
+}
+
+.link {
+  text-decoration: none;
+  color: $primary-background;
 }

@@ -24,9 +24,11 @@ function NavBar() {
             placeholder="Search"
           ></input>
           <img className="nav-right__icon" src={icon} alt="user icon"></img>
-          <Link to="/upload" className="nav-right__upload-btn link">
-            Upload
-          </Link>
+          <div className="nav-right__upload-btn">
+            <Link to="/upload" className="link">
+              Upload
+            </Link>
+          </div>
         </div>
       </nav>
     </header>
