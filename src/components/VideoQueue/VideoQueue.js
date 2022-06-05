@@ -1,10 +1,7 @@
 import "./VideoQueue.scss";
 import { Link } from "react-router-dom";
 
-const VideoQueue = ({
-  videos,
-  // handleVideoSelection
-}) => {
+const VideoQueue = ({ videos }) => {
   return (
     <section className="video-queue">
       <h2 className="video-queue__title">Next Videos</h2>

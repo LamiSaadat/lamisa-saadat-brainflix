@@ -72,9 +72,7 @@ class Home extends React.Component {
             {/* VIDEO DATA COMPONENT */}
             <VideoData activeVideo={activeVideo} />
             {/* VIDEO FORM COMPONENT */}
-            <VideoForm
-            // selectedVideo={this.state.selectedVideo}
-            />
+            <VideoForm comments={comments} />
             {/* VIDEO COMMENTS COMPONENT */}
             <Comments comments={comments} />
             {/* VIDEO QUEUE COMPONENT */}

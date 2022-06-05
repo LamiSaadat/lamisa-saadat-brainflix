@@ -1,10 +1,10 @@
 import "./VideoForm.scss";
 import icon from "../../assets/images/Mohan-muruge.jpg";
 
-function VideoForm() {
+function VideoForm({ comments }) {
   return (
     <div className="form-wrapper">
-      <p className="comment-counter">3 Comments</p>
+      <p className="comment-counter">{`${comments.length} Comments`}</p>
       <div className="form-container">
         <img className="form-container__image" src={icon}></img>
         <form className="form">

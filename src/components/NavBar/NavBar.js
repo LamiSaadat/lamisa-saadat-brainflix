@@ -8,7 +8,6 @@ function NavBar() {
     <header className="header">
       <nav className="nav">
         <div className="nav-left">
-          {/* changed a tags to Link tags */}
           <Link to="/" className="link">
             <img
               className="nav-left__logo"
@@ -24,11 +23,9 @@ function NavBar() {
             placeholder="Search"
           ></input>
           <img className="nav-right__icon" src={icon} alt="user icon"></img>
-          <div className="nav-right__upload-btn">
-            <Link to="/upload" className="link">
-              Upload
-            </Link>
-          </div>
+          <Link to="/upload" className="link nav-right__upload-btn">
+            <p>Upload</p>
+          </Link>
         </div>
       </nav>
     </header>
