@@ -18,17 +18,20 @@ class Home extends React.Component {
   };
 
   componentDidMount() {
+    //get all videos from API and update state
     const videoListEndpoint = `${BASE_URL}/videos${apiKeyString}`;
     axios.get(videoListEndpoint).then((response) => {
       this.setState({
         videos: response.data,
       });
 
+      //check id of selected video and show, otherwise show default
       const activeVideoId = this.props.match.params.id || response.data[0].id;
       this.fetchActiveVideo(activeVideoId);
     });
   }
 
+  //get video info from API and update state
   fetchActiveVideo = (videoId) => {
     const videoDetailsEndpoint = `${BASE_URL}/videos/${videoId}${apiKeyString}`;
     axios.get(videoDetailsEndpoint).then((response) => {
@@ -42,9 +45,11 @@ class Home extends React.Component {
     const videoId = this.props.match.params.id;
     const prevVideoId = prevProps.match.params.id;
 
+    //show selected video if selected
     if (videoId && videoId !== prevVideoId) {
       this.fetchActiveVideo(videoId);
     }
+    //show default video
     if (!videoId && prevVideoId) {
       this.fetchActiveVideo(this.state.videos[0].id);
     }
@@ -53,12 +58,14 @@ class Home extends React.Component {
   render() {
     const { videos, activeVideo } = this.state;
 
+    //show a loading text while fetching data
     if (videos === null || activeVideo === null) {
       return <p>Loading...</p>;
     }
 
     const { image, comments } = activeVideo;
 
+    //filter out the selected video from the videos queu
     const filteredVideos = this.state.videos.filter((videos) => {
       return videos.id !== this.state.activeVideo.id;
     });

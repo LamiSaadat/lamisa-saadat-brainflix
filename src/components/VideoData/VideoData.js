@@ -6,7 +6,6 @@ import likesIcon from "../../assets/icons/likes.svg";
 function VideoData({ activeVideo }) {
   return (
     <>
-      {/* VIDEO INFO COMPONENT */}
       <div className="video-info">
         <h1 className="video-info__title">{activeVideo.title}</h1>
         <div className="video-info__subtitle">
