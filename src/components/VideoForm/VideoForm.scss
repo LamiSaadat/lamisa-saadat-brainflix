@@ -95,15 +95,10 @@
       height: 2rem;
       width: 100%;
     }
+    &::placeholder {
+      padding-top: 0.5rem;
+    }
   }
-
-  // ::placeholder {
-  //   @include body-copy-mobile-font;
-  //   font-family: "AvenirNext LT Pro", sans-serif;
-  //   // font-size: inherit;
-  //   color: $primary-background;
-  //   padding: 0.5rem 0 0 0.3rem;
-  // }
 
   &__button {
     @include labels-buttons-mobile-font;

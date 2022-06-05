@@ -21,13 +21,19 @@ function Upload(props) {
             <img src={thumbnail} className="upload__thumbnail-image"></img>
           </figure>
           <form className="form" onSubmit={formSubmit}>
-            <label className="label form__title">
+            <label className="label form__title-label">
               Title Your Video
-              <input className="form__title-input input"></input>
+              <input
+                className="form__title-input input"
+                placeholder="Add a title to your video"
+              ></input>
             </label>
-            <label className="form__description label">
+            <label className="form__description-label label">
               Add a video description
-              <textarea className="form__description-input input"></textarea>
+              <textarea
+                className="form__description-input input"
+                placeholder="Add a description to your video"
+              ></textarea>
             </label>
             <div className="form__button-container">
               <Link className="link form__cancel-btn">Cancel</Link>
