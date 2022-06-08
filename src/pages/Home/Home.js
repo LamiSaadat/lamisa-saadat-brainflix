@@ -7,9 +7,9 @@ import VideoQueue from "../../components/VideoQueue";
 import React from "react";
 import axios from "axios";
 
-const BASE_URL = "https://project-2-api.herokuapp.com";
-const API_KEY = "66a6b358-99ab-4ba7-94c9-4b6cbd9a9092";
-const apiKeyString = `?api_key=${API_KEY}`;
+const BASE_URL = "http://localhost:8080/videos";
+// const API_KEY = "66a6b358-99ab-4ba7-94c9-4b6cbd9a9092";
+// const apiKeyString = `?api_key=${API_KEY}`;
 
 class Home extends React.Component {
   state = {
@@ -19,7 +19,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     //get all videos from API and update state
-    const videoListEndpoint = `${BASE_URL}/videos${apiKeyString}`;
+    const videoListEndpoint = BASE_URL;
     axios.get(videoListEndpoint).then((response) => {
       this.setState({
         videos: response.data,
@@ -33,7 +33,7 @@ class Home extends React.Component {
 
   //get video info from API and update state
   fetchActiveVideo = (videoId) => {
-    const videoDetailsEndpoint = `${BASE_URL}/videos/${videoId}${apiKeyString}`;
+    const videoDetailsEndpoint = `${BASE_URL}/${videoId}`;
     axios.get(videoDetailsEndpoint).then((response) => {
       this.setState({
         activeVideo: response.data,
