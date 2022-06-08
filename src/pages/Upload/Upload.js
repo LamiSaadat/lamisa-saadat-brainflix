@@ -1,12 +1,21 @@
 import "./Upload.scss";
 import thumbnail from "../../assets/images/Upload-video-preview.jpg";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function Upload(props) {
-  function formSubmit(event) {
-    event.preventDefault();
-    alert("Video uploaded successfully!");
-    props.history.push("/");
+  function formSubmit(e) {
+    e.preventDefault();
+
+    let newVideo = {
+      title: e.target.title.value,
+      description: e.target.description.value,
+    };
+
+    axios.post("http://localhost:8080/videos", newVideo).then(() => {
+      alert("Video uploaded successfully!");
+      props.history.push("/");
+    });
   }
 
   return (
@@ -25,6 +34,8 @@ function Upload(props) {
               Title Your Video
               <input
                 className="form__title-input input"
+                name="title"
+                id="title"
                 placeholder="Add a title to your video"
               ></input>
             </label>
@@ -32,6 +43,8 @@ function Upload(props) {
               Add a video description
               <textarea
                 className="form__description-input input"
+                name="description"
+                id="description"
                 placeholder="Add a description to your video"
               ></textarea>
             </label>
