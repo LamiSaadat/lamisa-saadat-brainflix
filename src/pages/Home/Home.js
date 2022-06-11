@@ -8,51 +8,46 @@ import React from "react";
 import axios from "axios";
 
 const BASE_URL = "http://localhost:8080/videos";
-// const API_KEY = "66a6b358-99ab-4ba7-94c9-4b6cbd9a9092";
-// const apiKeyString = `?api_key=${API_KEY}`;
 
 class Home extends React.Component {
   state = {
-    videos: null,
+    videos: [],
     activeVideo: null,
   };
 
-  componentDidMount() {
-    //get all videos from API and update state
-    const videoListEndpoint = BASE_URL;
-    axios.get(videoListEndpoint).then((response) => {
-      this.setState({
-        videos: response.data,
-      });
+  async componentDidMount() {
+    const videosList = await axios.get(BASE_URL);
 
-      //check id of selected video and show, otherwise show default
-      const activeVideoId = this.props.match.params.id || response.data[0].id;
-      this.fetchActiveVideo(activeVideoId);
+    //check id of selected video and show, otherwise show default
+    const activeVideoId = this.props.match.params.id || videosList.data[0].id;
+
+    const activeVideo = await axios.get(`${BASE_URL}/${activeVideoId}`);
+
+    //update state
+    this.setState({
+      videos: videosList.data,
+      activeVideo: activeVideo.data,
     });
   }
 
-  //get video info from API and update state
-  fetchActiveVideo = (videoId) => {
-    const videoDetailsEndpoint = `${BASE_URL}/${videoId}`;
-    axios.get(videoDetailsEndpoint).then((response) => {
+  componentDidUpdate(prevProps) {
+    let videoId = this.props.match.params.id;
+    let prevVideoId = prevProps.match.params.id;
+
+    //show selected video if selected
+    if (videoId !== prevVideoId) {
+      if (typeof videoId === "undefined") {
+        videoId = this.state.videos[0].id;
+      } else {
+        videoId = this.props.match.params.id;
+      }
+    }
+
+    axios.get(`${BASE_URL}/${videoId}`).then((response) => {
       this.setState({
         activeVideo: response.data,
       });
     });
-  };
-
-  componentDidUpdate(prevProps) {
-    const videoId = this.props.match.params.id;
-    const prevVideoId = prevProps.match.params.id;
-
-    //show selected video if selected
-    if (videoId && videoId !== prevVideoId) {
-      this.fetchActiveVideo(videoId);
-    }
-    //show default video
-    if (!videoId && prevVideoId) {
-      this.fetchActiveVideo(this.state.videos[0].id);
-    }
   }
 
   render() {
