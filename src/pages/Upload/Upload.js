@@ -7,14 +7,17 @@ function Upload(props) {
   function formSubmit(e) {
     e.preventDefault();
 
+    //new video object from data input
     let newVideo = {
       title: e.target.title.value,
       description: e.target.description.value,
     };
 
+    //post new video to server, then redirect to homepage to show successful upload message and remove message after 2 seconds
     axios.post("http://localhost:8080/videos", newVideo).then(() => {
-      alert("Video uploaded successfully!");
       props.history.push("/");
+      props.handleUpload();
+      setTimeout(props.handleUpload, 2000);
     });
   }
 
@@ -49,7 +52,9 @@ function Upload(props) {
               ></textarea>
             </label>
             <div className="form__button-container">
-              <Link className="link form__cancel-btn">Cancel</Link>
+              <Link to="/" className="link form__cancel-btn">
+                Cancel
+              </Link>
               <button type="submit" className="form__publish-btn">
                 Publish
               </button>

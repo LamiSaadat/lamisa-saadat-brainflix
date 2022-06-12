@@ -4,6 +4,7 @@ import VideoData from "../../components/VideoData";
 import VideoForm from "../../components/VideoForm/VideoForm";
 import Comments from "../../components/Comments";
 import VideoQueue from "../../components/VideoQueue";
+import UploadSuccess from "../../components/UploadSuccess/UploadSuccess";
 import React from "react";
 import axios from "axios";
 
@@ -62,13 +63,15 @@ class Home extends React.Component {
 
     const { image, comments } = activeVideo;
 
-    //filter out the selected video from the videos queu
+    //filter out the selected video from the videos queue
     const filteredVideos = this.state.videos.filter((videos) => {
       return videos.id !== this.state.activeVideo.id;
     });
 
     return (
       <>
+        {/* show when video uploads successfully */}
+        {this.props.isUploaded && <UploadSuccess />}
         {/*VIDEO DISPLAY COMPONENT*/}
         <VideoDisplay image={image} />
         <div className="bottom-wrapper">

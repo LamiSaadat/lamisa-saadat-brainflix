@@ -1,0 +1,13 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.success-message {
+  background-color: $primary-cta;
+  width: 30%;
+  margin: 1rem auto;
+  padding: 0.2rem;
+  text-align: center;
+  color: $primary-background;
+  @include subheader-desktop-font;
+  font-weight: 400;
+}
