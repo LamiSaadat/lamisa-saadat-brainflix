@@ -9,6 +9,10 @@
     padding: 0 2.5rem;
   }
 
+  @include desktop {
+    border-left: 0.0625rem solid $secondary-inactive;
+  }
+
   &__title {
     @include labels-buttons-mobile-font;
     font-size: 0.8rem;
