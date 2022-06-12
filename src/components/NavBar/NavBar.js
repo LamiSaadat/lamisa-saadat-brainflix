@@ -3,6 +3,7 @@ import icon from "../../assets/images/Mohan-muruge.jpg";
 import logo from "../../assets/logo/BrainFlix-logo.svg";
 import { Link } from "react-router-dom";
 
+//navigation bar
 function NavBar() {
   return (
     <header className="header">

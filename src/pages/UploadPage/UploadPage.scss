@@ -11,7 +11,7 @@
 }
 .upload {
   padding: 0 1rem;
-  border-top: 1px solid $secondary-inactive;
+  border-top: 0.0625rem solid $secondary-inactive;
 
   @include tablet {
     display: block;
@@ -21,7 +21,7 @@
   &__title {
     @include page-header-mobile-font;
     font-weight: 600;
-    border-bottom: 1px solid $secondary-inactive;
+    border-bottom: 0.0625rem solid $secondary-inactive;
     padding-bottom: 1.5rem;
 
     @include tablet {
@@ -53,7 +53,7 @@
   &__thumbnail-image {
     height: 10rem;
     width: 100%;
-    border-radius: 4px;
+    border-radius: 0.25rem;
 
     @include tablet {
       height: 12rem;
@@ -61,11 +61,11 @@
   }
 
   &__thumbnail-image::after {
-    border: 1px solid $secondary-inactive;
+    border: 0.0625rem solid $secondary-inactive;
   }
 }
 
-.form {
+.upload-form {
   width: 97%;
   margin-top: 0.8rem;
 
@@ -94,7 +94,7 @@
   &__description-label {
     @include tablet {
       width: 100%;
-      border-bottom: 1px solid $secondary-inactive;
+      border-bottom: 0.0625rem solid $secondary-inactive;
     }
   }
 
@@ -153,8 +153,8 @@
     background-color: $primary-cta;
     color: $primary-background;
     border: none;
-    border-radius: 4px;
-    height: 40px;
+    border-radius: 0.25rem;
+    height: 2.5rem;
     width: 100%;
     text-transform: uppercase;
     background-image: url("../../assets/icons/publish.svg");
@@ -177,7 +177,7 @@
   }
 }
 
-.label {
+.upload-label {
   @include labels-buttons-mobile-font;
   font-weight: 600;
   font-size: 0.8rem;
@@ -185,7 +185,7 @@
   color: #afafaf;
 }
 
-.input {
+.upload-input {
   width: 100%;
   resize: none;
   background-color: $secondary-background;
@@ -194,4 +194,8 @@
   @include body-copy-mobile-font;
   font-family: "AvenirNext LT Pro", sans-serif;
   margin-bottom: 1rem;
+
+  &:active {
+    border: 1px solid $primary-cta;
+  }
 }

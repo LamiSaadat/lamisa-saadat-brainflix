@@ -1,13 +1,13 @@
-import { convertTimeToDate } from "../../utils/utils";
+import { convertTimeToDate } from "../../utils/convertTimeToDate";
 import "./Comments.scss";
 
 function Comments({ comments }) {
   return (
-    <section className="comments">
+    <section className="comments" key={comments.id}>
       {comments.map((comment) => {
         return (
           <div className="comment-card" key={comment.id}>
-            <img className="comment-card__image" alt="" />
+            <img className="comment-card__image" alt="user icon" />
             <div className="comment-card__output">
               <div className="comment-card__info">
                 <p className="comment-card__name">{comment.name}</p>

@@ -10,13 +10,13 @@
   }
 
   @include desktop {
-    border-right: 1px solid $secondary-inactive;
+    border-right: 0.0625rem solid $secondary-inactive;
     padding-right: 0;
   }
 
   &__title {
     @include page-header-mobile-font;
-    border-bottom: 1px solid $secondary-inactive;
+    border-bottom: 0.0625rem solid $secondary-inactive;
     margin-bottom: 0;
     padding-bottom: 1rem;
 
@@ -30,7 +30,7 @@
   &__subtitle {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid $secondary-inactive;
+    border-bottom: 0.0625rem solid $secondary-inactive;
     font-size: 0.8rem;
 
     @include tablet {

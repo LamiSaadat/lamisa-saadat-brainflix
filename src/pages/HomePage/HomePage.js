@@ -1,7 +1,7 @@
-import "./Home.scss";
+import "./HomePage.scss";
 import VideoDisplay from "../../components/VideoDisplay";
 import VideoData from "../../components/VideoData";
-import VideoForm from "../../components/VideoForm/VideoForm";
+import CommentForm from "../../components/CommentForm/CommentForm";
 import Comments from "../../components/Comments";
 import VideoQueue from "../../components/VideoQueue";
 import UploadSuccess from "../../components/UploadSuccess/UploadSuccess";
@@ -17,18 +17,22 @@ class Home extends React.Component {
   };
 
   async componentDidMount() {
-    const videosList = await axios.get(BASE_URL);
+    try {
+      const videosList = await axios.get(BASE_URL);
 
-    //check id of selected video and show, otherwise show default
-    const activeVideoId = this.props.match.params.id || videosList.data[0].id;
+      //check id of selected video and show, otherwise show default
+      const activeVideoId = this.props.match.params.id || videosList.data[0].id;
 
-    const activeVideo = await axios.get(`${BASE_URL}/${activeVideoId}`);
+      const activeVideo = await axios.get(`${BASE_URL}/${activeVideoId}`);
 
-    //update state
-    this.setState({
-      videos: videosList.data,
-      activeVideo: activeVideo.data,
-    });
+      //update state
+      this.setState({
+        videos: videosList.data,
+        activeVideo: activeVideo.data,
+      });
+    } catch (error) {
+      return error;
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -61,7 +65,7 @@ class Home extends React.Component {
       return <p>Loading...</p>;
     }
 
-    const { image, comments } = activeVideo;
+    const { image, comments, title, channel } = activeVideo;
 
     //filter out the selected video from the videos queue
     const filteredVideos = this.state.videos.filter((videos) => {
@@ -73,13 +77,16 @@ class Home extends React.Component {
         {/* show when video uploads successfully */}
         {this.props.isUploaded && <UploadSuccess />}
         {/*VIDEO DISPLAY COMPONENT*/}
-        <VideoDisplay image={image} />
+        <VideoDisplay
+          image={image}
+          alt={`Video called ${title} by ${channel} `}
+        />
         <div className="bottom-wrapper">
           <div className="video-content-wrapper">
             {/* VIDEO DATA COMPONENT */}
             <VideoData activeVideo={activeVideo} />
             {/* VIDEO FORM COMPONENT */}
-            <VideoForm comments={comments} />
+            <CommentForm comments={comments} />
             {/* VIDEO COMMENTS COMPONENT */}
             <Comments comments={comments} />
             {/* VIDEO QUEUE COMPONENT */}

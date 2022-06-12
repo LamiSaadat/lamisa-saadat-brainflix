@@ -1,8 +1,9 @@
 import "./VideoData.scss";
-import { convertTimeToDate } from "../../utils/utils";
+import { convertTimeToDate } from "../../utils/convertTimeToDate";
 import veiwsIcon from "../../assets/icons/views.svg";
 import likesIcon from "../../assets/icons/likes.svg";
 
+//video info display
 function VideoData({ activeVideo }) {
   return (
     <>
@@ -17,10 +18,15 @@ function VideoData({ activeVideo }) {
           </div>
           <div className="video-info__subtitle-right">
             <p className="video-info__views">
-              <img src={veiwsIcon}></img> {activeVideo.views}
+              <img
+                src={veiwsIcon}
+                alt={`Video called ${activeVideo.title} by ${activeVideo.channel} `}
+              ></img>
+              {activeVideo.views}
             </p>
             <p className="video-info__likes">
-              <img src={likesIcon}></img> {activeVideo.likes}
+              <img src={likesIcon} alt="User icon"></img>
+              {activeVideo.likes}
             </p>
           </div>
         </div>

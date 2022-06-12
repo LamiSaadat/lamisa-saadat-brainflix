@@ -1,6 +1,7 @@
 import "./VideoQueue.scss";
 import { Link } from "react-router-dom";
 
+//list of videos
 const VideoQueue = ({ videos }) => {
   return (
     <section className="video-queue">

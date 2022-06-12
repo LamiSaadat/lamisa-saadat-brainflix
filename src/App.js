@@ -1,9 +1,11 @@
 import "./App.scss";
 import NavBar from "./components/NavBar";
-import Home from "./pages/Home";
-import Upload from "./pages/Upload";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import UploadPage from "./pages/UploadPage";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Component } from "react";
+
+document.title = "Brainflix";
 
 class App extends Component {
   //set initial state of video upload
@@ -30,7 +32,7 @@ class App extends Component {
             exact
             render={(routerProps) => {
               return (
-                <Home {...routerProps} isUploaded={this.state.isUploaded} />
+                <HomePage {...routerProps} isUploaded={this.state.isUploaded} />
               );
             }}
           />
@@ -39,11 +41,11 @@ class App extends Component {
             path="/upload"
             render={(routerProps) => {
               return (
-                <Upload {...routerProps} handleUpload={this.handleUpload} />
+                <UploadPage {...routerProps} handleUpload={this.handleUpload} />
               );
             }}
           />
-          <Route path="/video/:id" component={Home} />
+          <Route path="/video/:id" component={HomePage} />
         </Switch>
       </Router>
     );
