@@ -41,13 +41,15 @@ class Home extends React.Component {
       } else {
         videoId = this.props.match.params.id;
       }
+      axios
+        .get(`${BASE_URL}/${videoId}`)
+        .then((response) => {
+          this.setState({
+            activeVideo: response.data,
+          });
+        })
+        .then(window.scrollTo(0, 0));
     }
-
-    axios.get(`${BASE_URL}/${videoId}`).then((response) => {
-      this.setState({
-        activeVideo: response.data,
-      });
-    });
   }
 
   render() {
