@@ -3,6 +3,8 @@ import VideoDisplay from "../../components/VideoDisplay";
 import VideoData from "../../components/VideoData";
 import VideoForm from "../../components/VideoForm/VideoForm";
 import Comments from "../../components/Comments";
+import Upload from "../Upload/Upload";
+import UploadSuccess from "../../components/UploadSuccess";
 import VideoQueue from "../../components/VideoQueue";
 import React from "react";
 import axios from "axios";
@@ -67,6 +69,7 @@ class Home extends React.Component {
 
     return (
       <>
+        {this.formSubmit && <UploadSuccess />}
         {/*VIDEO DISPLAY COMPONENT*/}
         <VideoDisplay image={image} />
         <div className="bottom-wrapper">
