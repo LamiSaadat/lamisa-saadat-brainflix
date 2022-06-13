@@ -14,13 +14,13 @@ class App extends Component {
   };
 
   //function to toggle state on upload
-  handleUpload() {
+  handleUpload = () => {
     this.setState((prevState) => ({
       isUploaded: !prevState.isUploaded,
     }));
-  }
+  };
 
-  handleUpload = this.handleUpload.bind(this);
+  // handleUpload = this.handleUpload.bind(this);
 
   render() {
     return (

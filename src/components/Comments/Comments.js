@@ -3,10 +3,10 @@ import "./Comments.scss";
 
 function Comments({ comments }) {
   return (
-    <section className="comments" key={comments.id}>
-      {comments.map((comment) => {
+    <section className="comments">
+      {comments.map((comment, index) => {
         return (
-          <div className="comment-card" key={comment.id}>
+          <div className="comment-card" key={index}>
             <img className="comment-card__image" alt="" />
             <div className="comment-card__output">
               <div className="comment-card__info">
